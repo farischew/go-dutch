@@ -1,0 +1,17 @@
+.image_form {
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.no_preview {
+  background-color: lightgray;
+  height: 344px;
+  width: 244px;
+  margin: 1rem auto
+}
+
+.preview {
+  height: 344px;
+  width: 244px;
+  margin: 1rem auto
+}
