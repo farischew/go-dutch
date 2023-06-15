@@ -19,6 +19,7 @@
   margin-bottom: 1rem;
   display: flex;
   gap: 4px;
+  justify-content: center;
 }
 
 .formcontrol input,
