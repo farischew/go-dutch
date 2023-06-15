@@ -3,14 +3,17 @@
 import Image from "next/image";
 
 import Button from "@/UI/Button";
-import Link from "next/link";
 
 import logo from "../../app/assets/images/icon.png";
 
 const CLEAR_URL = "https://go-dutch-backend.herokuapp.com/clear";
 
 export default function FrontPage() {
-  const onNewReceipt = async () => {
+  function redirectToNewReceipt() {
+    window.location.href = "/newreceipt"; // Replace '/' with the desired root page URL
+  }
+
+  const clearCache = async () => {
     const response = await fetch(CLEAR_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -19,6 +22,17 @@ export default function FrontPage() {
     const data = await response.json();
 
     console.log(data);
+  };
+
+  const onNewReceipt = async () => {
+    try {
+      await clearCache();
+      console.log("All cleared");
+      redirectToNewReceipt();
+    } catch (error) {
+      console.log("Nothing to clear");
+      redirectToNewReceipt();
+    }
   };
 
   return (
