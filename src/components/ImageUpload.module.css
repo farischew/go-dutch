@@ -13,6 +13,7 @@
 .formcontrol input,
 .formcontrol label {
   display: block;
+  margin: 0 auto;
 }
 
 .formcontrol label {
