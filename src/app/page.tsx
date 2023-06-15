@@ -6,6 +6,7 @@ import Button from "@/UI/Button";
 import Link from "next/link";
 
 import logo from "./assets/images/icon.png";
+import FrontPage from "@/components/Homepage/Frontpage";
 
 export const metadata: Metadata = {
   title: "Go Dutch",
@@ -19,12 +20,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <Container>
-      <div className="flex flex-col justify-center items-center mt-36">
-        <Image src={logo} alt="Go-Dutch" />
-        <Link href="/newreceipt">
-          <Button>New Receipt</Button>
-        </Link>
-      </div>
+      <FrontPage />
     </Container>
   );
 }
