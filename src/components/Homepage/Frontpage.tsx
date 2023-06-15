@@ -1,16 +1,16 @@
 "use client";
 
 import Image from "next/image";
-
+import { redirect } from "react-router-dom";
 import Button from "@/UI/Button";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import logo from "../../app/assets/images/icon.png";
 
 const CLEAR_URL = "https://go-dutch-backend.herokuapp.com/clear";
 
 export default function FrontPage() {
-  const onNewReceipt = async () => {
+  const clearCache = async () => {
     const response = await fetch(CLEAR_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -19,6 +19,15 @@ export default function FrontPage() {
     const data = await response.json();
 
     console.log(data);
+  };
+
+  const onNewReceipt = async () => {
+    try {
+      await clearCache();
+      console.log("Success");
+    } catch (error) {
+      console.log("Nothing to clear");
+    }
   };
 
   return (
