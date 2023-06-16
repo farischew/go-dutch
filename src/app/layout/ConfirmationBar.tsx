@@ -18,15 +18,22 @@ const ConfirmationBar: React.FC<{
     });
 
     const data = await response.json();
+  };
 
-    redirectToRoot();
+  const onNewReceipt = async () => {
+    try {
+      await onConfirmHandler();
+      redirectToRoot();
+    } catch (error) {
+      redirectToRoot();
+    }
   };
 
   return (
     <div className={classes.wrapper}>
       <div className={classes.actions}>
         <BackButton onClick={props.onBack}>Back</BackButton>
-        <Button onClick={onConfirmHandler}>New Receipt</Button>
+        <Button onClick={onNewReceipt}>New Receipt</Button>
       </div>
     </div>
   );
